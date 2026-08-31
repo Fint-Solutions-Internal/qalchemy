@@ -1,0 +1,12 @@
+# Non-website deliverables (decks, exports, posters, build scripts) - not part of the site
+/collateral/
+
+# Playwright MCP test artifacts
+/.playwright-mcp/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
