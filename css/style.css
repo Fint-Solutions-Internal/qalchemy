@@ -61,7 +61,7 @@ nav{
 }
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;}
 .brand{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:15px;}
-.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px var(--teal-soft);}
+.brand-logo{height:26px;width:auto;background:#fff;padding:4px 8px;border-radius:8px;}
 .navlinks{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--graphite-soft);}
 .navlinks a:hover{color:var(--teal);}
 .navcta{
