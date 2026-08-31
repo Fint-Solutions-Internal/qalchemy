@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QAlchemy Expo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Georgia&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0f7b6c;
+  --teal-soft:#0f7b6c1a;
+  --paper:#faf8f5;
+  --paper-2:#f1ede6;
+  --graphite:#1c1f1e;
+  --graphite-soft:#4a504d;
+  --border:#e3ddd2;
+  --card:#ffffff;
+  --accent-glow: radial-gradient(circle at 30% 20%, rgba(15,123,108,.15), transparent 60%);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --teal:#3ecda9;
+    --teal-soft:#3ecda91a;
+    --paper:#12100e;
+    --graphite:#f3efe8;
+    --graphite-soft:#b8b2a6;
+    --border:#2c2822;
+    --card:#1a1714;
+    --paper-2:#1f1b17;
+  }
+}
+:root[data-theme="dark"]{
+  --teal:#3ecda9;
+  --teal-soft:#3ecda91a;
+  --paper:#12100e;
+  --graphite:#f3efe8;
+  --graphite-soft:#b8b2a6;
+  --border:#2c2822;
+  --card:#1a1714;
+  --paper-2:#1f1b17;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--graphite);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+.mono{font-family:'JetBrains Mono',monospace;}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-0.01em;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--teal);
+  font-weight:600;
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:15px;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px var(--teal-soft);}
+.navlinks{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--graphite-soft);}
+.navlinks a:hover{color:var(--teal);}
+.navcta{
+  background:var(--graphite);color:var(--paper);
+  padding:9px 18px;border-radius:100px;font-size:13px;font-weight:600;
+  font-family:'JetBrains Mono',monospace;
+}
+.navcta:hover{background:var(--teal);color:#fff;}
+@media(max-width:760px){.navlinks{display:none;}}
+
+/* HERO */
+.hero{position:relative;padding:120px 0 100px;background:var(--accent-glow);overflow:hidden;}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 70%);
+  opacity:.5;
+}
+.hero .wrap{position:relative;text-align:center;}
+.hero .eyebrow{display:block;margin-bottom:22px;}
+.hero h1{font-size:clamp(44px,8vw,96px);line-height:0.98;margin-bottom:24px;}
+.hero h1 em{font-style:normal;color:var(--teal);}
+.hero p.sub{
+  max-width:600px;margin:0 auto 40px;
+  font-size:18px;color:var(--graphite-soft);
+}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;}
+.btn{
+  padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;
+  display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn-primary{background:var(--teal);color:#06231d;box-shadow:0 8px 24px -8px var(--teal);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px var(--teal);}
+.btn-ghost{border:1px solid var(--border);background:var(--card);}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+
+.hero-meta{
+  display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--graphite-soft);
+}
+.hero-meta strong{color:var(--graphite);display:block;font-size:15px;font-family:'Inter',sans-serif;font-weight:700;margin-bottom:2px;}
+
+/* SECTION shared */
+section{padding:96px 0;border-top:1px solid var(--border);}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head .eyebrow{margin-bottom:14px;display:block;}
+.section-head h2{font-size:clamp(30px,4vw,44px);}
+.section-head p{color:var(--graphite-soft);font-size:16px;margin-top:14px;}
+
+/* ABOUT FINT / EXPO */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:40px;}}
+.about-grid h3{font-size:24px;margin-bottom:14px;}
+.about-grid p{color:var(--graphite-soft);font-size:15.5px;margin-bottom:14px;}
+.pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+.pill{
+  border:1px solid var(--border);padding:7px 14px;border-radius:100px;
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--graphite-soft);
+}
+
+.stat-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:64px;
+}
+@media(max-width:700px){.stat-strip{grid-template-columns:1fr;}}
+.stat{background:var(--card);padding:28px 20px;text-align:center;}
+.stat .num{font-family:Georgia,serif;font-size:36px;color:var(--teal);}
+.stat .label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--graphite-soft);margin-top:6px;}
+
+/* AGENDA */
+.agenda-table{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card);}
+.agenda-row{
+  display:grid;grid-template-columns:160px 1fr 110px;gap:16px;
+  padding:20px 24px;border-bottom:1px solid var(--border);align-items:center;
+}
+.agenda-row:last-child{border-bottom:none;}
+.agenda-row.break{background:var(--paper-2);}
+.agenda-row .time{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--teal);font-weight:600;}
+.agenda-row .session{font-size:16px;font-weight:600;}
+.agenda-row .session small{display:block;font-weight:400;color:var(--graphite-soft);font-size:13px;margin-top:2px;}
+.agenda-row .dur{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--graphite-soft);text-align:right;}
+@media(max-width:640px){
+  .agenda-row{grid-template-columns:1fr;gap:4px;padding:16px 20px;}
+  .agenda-row .dur{text-align:left;}
+}
+
+/* SPEAKERS / VOLUNTEERS grid */
+.people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+@media(max-width:820px){.people-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.people-grid{grid-template-columns:1fr;}}
+.person-card{
+  background:var(--card);border:1px solid var(--border);border-radius:18px;
+  padding:28px 24px;text-align:center;transition:transform .15s ease, border-color .15s ease;
+}
+.person-card:hover{transform:translateY(-4px);border-color:var(--teal);}
+.avatar{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg, var(--teal-soft), var(--paper-2));
+  border:1px solid var(--border);
+  font-family:Georgia,serif;font-size:28px;color:var(--teal);
+}
+.person-card h4{font-size:17px;font-weight:700;margin-bottom:4px;font-family:'Inter',sans-serif;}
+.person-card .role{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--graphite-soft);text-transform:uppercase;letter-spacing:.06em;}
+.person-card .topic{margin-top:12px;font-size:13.5px;color:var(--graphite-soft);}
+
+.volunteers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;}
+.vol-chip{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px;display:flex;align-items:center;gap:12px;
+}
+.vol-avatar{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg, var(--teal-soft), var(--paper-2));
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;color:var(--teal);font-size:15px;
+}
+.vol-chip span{font-size:14px;font-weight:600;}
+
+/* CTA banner */
+.cta-band{
+  border-top:1px solid var(--border);
+  background:linear-gradient(180deg, var(--paper-2), var(--paper));
+  padding:100px 0;text-align:center;
+}
+.cta-band h2{font-size:clamp(30px,5vw,52px);margin-bottom:16px;}
+.cta-band p{color:var(--graphite-soft);margin-bottom:36px;font-size:16px;}
+
+/* MAP / CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;}}
+.map-card{
+  border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--card);
+}
+.map-card iframe{width:100%;height:300px;border:0;display:block;}
+.map-card .map-label{padding:16px 20px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--graphite-soft);}
+.contact-list{display:flex;flex-direction:column;gap:20px;}
+.contact-item{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;
+}
+.contact-item .k{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+.contact-item .v{font-size:15px;font-weight:600;}
+
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--graphite-soft);}
+
+.placeholder-note{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--graphite-soft);
+  background:var(--teal-soft);border:1px dashed var(--teal);border-radius:8px;
+  padding:6px 10px;display:inline-block;margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>QALCHEMY EXPO</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#volunteers">Volunteers</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="navcta" href="#register">Register &#8594;</a>
+  </div>
+</nav>
+
+<section class="hero" style="border-top:none;padding-top:120px;">
+  <div class="wrap">
+    <span class="eyebrow">FINT &middot; Dallas Center, Hyderabad &middot; Oct 10, 2026</span>
+    <h1>QA<em>lchemy</em><br>Expo 2026</h1>
+    <p class="sub">Where testing meets transformation. FINT's <strong style="color:var(--graphite);font-weight:800;">QA community</strong> comes together for a day of sessions, hands-on workshops, and conversations that push <strong style="color:var(--teal);font-weight:800;">quality engineering</strong> forward, together.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#register" id="register">Reserve Your Seat</a>
+      <a class="btn btn-ghost" href="#agenda">See the Agenda</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>Oct 10, 2026</strong>Saturday &middot; Full day</div>
+      <div><strong>Dallas Center</strong>Hyderabad, HITEC City</div>
+      <div><strong>9:30 - 4:30</strong>Registration to wind-up</div>
+      <div><strong>Open</strong>QA community &amp; guests</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why we're here</span>
+      <h2>Quality is our craft.<br>This is where we sharpen it.</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <h3>About FINT</h3>
+        <p>FINT builds and ships technology that demands <strong style="color:var(--graphite);font-weight:800;">relentless quality</strong>, where every release, every integration, every edge case matters. Our QA practice isn't an afterthought; it's a discipline we invest in, because the teams that test well are the teams that ship with confidence.</p>
+        <p>QAlchemy Expo is our way of turning that discipline outward: a space built by QAs, for QAs, to trade ideas, tools, and hard-won lessons.</p>
+      </div>
+      <div>
+        <h3>About the Expo</h3>
+        <p>QAs are no longer the last checkpoint before release. We're active <strong style="color:var(--teal);font-weight:800;">competitors in the market</strong> that rewards speed <em>and</em> quality. QAlchemy Expo is FINT's answer: a full day of real talks on AI in QA, security testing, infrastructure, and the tools we build in-house, capped off with hands-on time in the workshop.</p>
+        <p>No fluff, no vendor pitches. Just practitioners talking to practitioners.</p>
+        <div class="pill-row">
+          <span class="pill">AI + QA</span>
+          <span class="pill">Security Testing</span>
+          <span class="pill">Infra &amp; Automation</span>
+          <span class="pill">Internal Tooling</span>
+          <span class="pill">Hands-on Workshop</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="num">Limited</div><div class="label">Seats</div></div>
+      <div class="stat"><div class="num">4</div><div class="label">Sessions</div></div>
+      <div class="stat"><div class="num">1</div><div class="label">Workshop</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="agenda">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The day, unboxed</span>
+      <h2>Unboxing Expo: the full agenda</h2>
+      <p>One day. Four sessions, a hands-on workshop, and everything in between.</p>
+    </div>
+    <div class="agenda-table">
+      <div class="agenda-row"><div class="time">9:30 - 10:00</div><div class="session">Registration &amp; Welcome</div><div class="dur">30 min</div></div>
+      <div class="agenda-row"><div class="time">10:00 - 10:45</div><div class="session">Session 1<small>General session</small></div><div class="dur">45 min</div></div>
+      <div class="agenda-row"><div class="time">10:45 - 11:30</div><div class="session">Session 2<small>General session</small></div><div class="dur">45 min</div></div>
+      <div class="agenda-row break"><div class="time">11:30 - 11:50</div><div class="session">Break</div><div class="dur">20 min</div></div>
+      <div class="agenda-row"><div class="time">11:50 - 12:35</div><div class="session">Session 3<small>General session</small></div><div class="dur">45 min</div></div>
+      <div class="agenda-row"><div class="time">12:35 - 1:20</div><div class="session">Session 4<small>General session</small></div><div class="dur">45 min</div></div>
+      <div class="agenda-row break"><div class="time">1:20 - 2:30</div><div class="session">Lunch</div><div class="dur">1 hr</div></div>
+      <div class="agenda-row"><div class="time">2:30 - 4:00</div><div class="session">Hands-on Workshop<small>MobileWright</small></div><div class="dur">1 hr 30 min</div></div>
+      <div class="agenda-row"><div class="time">4:00 - 4:30</div><div class="session">Wind-up &amp; Feedback</div><div class="dur">30 min</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="speakers">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Who's talking</span>
+      <h2>Speakers</h2>
+      <p>Practitioners sharing what they've actually built and broken.</p>
+      <span class="placeholder-note">Photos are placeholders: swap in real headshots before publishing</span>
+    </div>
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="avatar">RM</div>
+        <h4>Raju Kumar Matcha</h4>
+        <div class="role">Speaker</div>
+        <div class="topic">QA + AI + Infra</div>
+      </div>
+      <div class="person-card">
+        <div class="avatar">NM</div>
+        <h4>Nalinikanth Meesala</h4>
+        <div class="role">Speaker</div>
+        <div class="topic">QA + AI + Security</div>
+      </div>
+      <div class="person-card">
+        <div class="avatar">S&amp;B</div>
+        <h4>Saravanan &amp; Bharath</h4>
+        <div class="role">Speakers</div>
+        <div class="topic">General session</div>
+      </div>
+      <div class="person-card">
+        <div class="avatar">A&amp;P</div>
+        <h4>Anirudh &amp; Poornima</h4>
+        <div class="role">Speakers</div>
+        <div class="topic">FINT Internal Tooling</div>
+      </div>
+      <div class="person-card">
+        <div class="avatar">J&amp;H</div>
+        <h4>Jayakumar &amp; Hariharan</h4>
+        <div class="role">Workshop Leads</div>
+        <div class="topic">Hands-on: MobileWright</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="volunteers">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Who's making it happen</span>
+      <h2>Volunteers</h2>
+      <p>The crew running the room so everyone else can just show up and learn.</p>
+      <span class="placeholder-note">Photos are placeholders: swap in real headshots before publishing</span>
+    </div>
+    <div class="volunteers-grid" id="volunteers-grid"></div>
+  </div>
+</section>
+
+<section class="cta-band" id="register-band" style="border-top:1px solid var(--border);">
+  <div class="wrap">
+    <span class="eyebrow">Seats are limited</span>
+    <h2>Come be part of it.</h2>
+    <p>QAlchemy Expo &middot; Oct 10, 2026 &middot; Dallas Center, Hyderabad</p>
+    <a class="btn btn-primary" href="#" onclick="alert('Add your registration form link here (e.g. Google Form / Luma / internal tool).'); return false;">Register Now</a>
+    <div><span class="placeholder-note">Registration button is a placeholder: link it to your actual sign-up form</span></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Find us</span>
+      <h2>Contact &amp; venue</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="map-card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.195151502119!2d78.3810462!3d17.4503712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9236e14ffd35%3A0x96d517533525e34d!2sFint%20Solutions!5e0!3m2!1sen!2sin!4v1788186696749!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="map-label">FINT Solutions: Dallas Center, Survey No. 83/1, Rai Durg, HITEC City, Hyderabad, Telangana 500032</div>
+      </div>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="k">Event</div>
+          <div class="v">FINT QAlchemy Expo 2026: Oct 10, Saturday</div>
+        </div>
+        <div class="contact-item">
+          <div class="k">Venue</div>
+          <div class="v">FINT Dallas Center Office, Hyderabad</div>
+        </div>
+        <div class="contact-item">
+          <div class="k">Email</div>
+          <div class="v">qalchemy@fintinc.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="k">Organized by</div>
+          <div class="v">FINT QA Collective</div>
+        </div>
+        <span class="placeholder-note">Contact email is a placeholder: replace with your official event inbox</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">FINT QAlchemy Expo 2026 &middot; Built by the QA Collective</div>
+</footer>
+
+<script>
+const volunteers = ["Syam","Supriya","Dinesh","Rajasheker","Shravan","Anurag","Raviteja","Naveen","Lakshman","Bharath","Manoji","Sushma","Praveen"];
+const grid = document.getElementById('volunteers-grid');
+volunteers.forEach(name=>{
+  const initials = name.slice(0,2).toUpperCase();
+  const chip = document.createElement('div');
+  chip.className = 'vol-chip';
+  chip.innerHTML = `<div class="vol-avatar">${initials}</div><span>${name}</span>`;
+  grid.appendChild(chip);
+});
+</script>
+
+</body>
+</html>
