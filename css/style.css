@@ -201,6 +201,27 @@ section{padding:96px 0;border-top:1px solid var(--border);}
 .vol-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
 .vol-chip span{font-size:14px;font-weight:600;}
 
+/* FAQ */
+.faq-list{max-width:760px;display:flex;flex-direction:column;gap:12px;}
+.faq-item{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:6px 24px;
+}
+.faq-item summary{
+  padding:16px 0;cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:16px;font-weight:600;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";flex-shrink:0;
+  font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:400;
+  color:var(--teal);transition:transform .15s ease;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{color:var(--graphite-soft);font-size:15px;padding-bottom:20px;padding-right:32px;}
+.faq-item:hover{border-color:var(--teal);}
+
 /* CTA banner */
 .cta-band{
   border-top:1px solid var(--border);
