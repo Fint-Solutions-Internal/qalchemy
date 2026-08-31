@@ -202,24 +202,38 @@ section{padding:96px 0;border-top:1px solid var(--border);}
 .vol-chip span{font-size:14px;font-weight:600;}
 
 /* FAQ */
-.faq-list{max-width:760px;display:flex;flex-direction:column;gap:12px;}
+.faq-list{
+  counter-reset:faq;
+  columns:2;column-gap:16px;
+}
+@media(max-width:760px){.faq-list{columns:1;}}
 .faq-item{
-  background:var(--card);border:1px solid var(--border);border-radius:14px;
-  padding:6px 24px;
+  counter-increment:faq;
+  break-inside:avoid;margin-bottom:12px;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:2px 18px;
 }
 .faq-item summary{
-  padding:16px 0;cursor:pointer;list-style:none;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  font-size:16px;font-weight:600;
+  padding:13px 0;cursor:pointer;list-style:none;
+  display:grid;grid-template-columns:22px 1fr 16px;align-items:baseline;gap:10px;
+  font-size:14.5px;font-weight:600;
 }
 .faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::before{
+  content:counter(faq,decimal-leading-zero);
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+  color:var(--teal);
+}
 .faq-item summary::after{
-  content:"+";flex-shrink:0;
-  font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:400;
+  content:"+";justify-self:end;
+  font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:400;
   color:var(--teal);transition:transform .15s ease;
 }
 .faq-item[open] summary::after{transform:rotate(45deg);}
-.faq-item p{color:var(--graphite-soft);font-size:15px;padding-bottom:20px;padding-right:32px;}
+.faq-item p{
+  color:var(--graphite-soft);font-size:14px;
+  padding-bottom:16px;padding-right:24px;margin-left:32px;
+}
 .faq-item:hover{border-color:var(--teal);}
 
 /* CTA banner */
