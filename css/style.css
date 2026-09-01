@@ -106,12 +106,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;}
 .btn{
   padding:15px 30px;border-radius:100px;font-weight:600;font-size:15px;
-  display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease, box-shadow .15s ease;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 .btn-primary{background:var(--teal);color:#06231d;box-shadow:0 8px 24px -8px var(--teal);}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px var(--teal);}
 .btn-ghost{border:1px solid var(--border);background:var(--card);}
-.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--teal);color:var(--teal);background:var(--teal-soft);box-shadow:0 8px 20px -10px var(--teal);}
 
 .hero-meta{
   display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
