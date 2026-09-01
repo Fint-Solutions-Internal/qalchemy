@@ -7,8 +7,8 @@ const speakers = [
 ];
 
 const volunteers = [
-  "Syam", "Supriya", "Dinesh", "Rajasheker", "Shravan", "Anurag", "Raviteja",
-  "Naveen", "Lakshman", "Bharath", "Manoji", "Sushma", "Praveen"
+  "Anurag", "Dinesh", "Lakshman", "Manoji", "Naveen", "Praveen",
+  "Rajasheker", "Raviteja", "Shravan", "Supriya", "Sushma", "Syam"
 ].map(name => ({
   name,
   photo: `photos/volunteers/${name.toLowerCase()}.jpg`
