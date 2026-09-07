@@ -38,9 +38,9 @@ function renderVolunteers() {
   const grid = document.getElementById('volunteers-grid');
   if (!grid) return;
   grid.innerHTML = volunteers.map(v => `
-    <div class="vol-chip">
-      <div class="vol-avatar">${avatarMarkup(v.photo, v.name.slice(0, 2).toUpperCase())}</div>
-      <span>${v.name}</span>
+    <div class="person-card vol-card">
+      <div class="avatar avatar-sm">${avatarMarkup(v.photo, v.name.slice(0, 2).toUpperCase())}</div>
+      <h4>${v.name}</h4>
     </div>
   `).join('');
 }
