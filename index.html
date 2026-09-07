@@ -8,12 +8,10 @@
 <link rel="apple-touch-icon" href="photos/brand/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div class="countdown-bar" id="countdown-bar">Loading countdown&hellip;</div>
 
 <nav>
   <div class="wrap">
@@ -41,10 +39,18 @@
     </div>
     <span class="eyebrow">Dallas Center, Hyderabad <span class="sep">&#8226;</span> Oct 10, 2026</span>
     <h1>QA<em>lchemy</em><br>Expo 2026</h1>
-    <p class="sub">Where testing meets transformation. FINT's <strong style="color:var(--teal);font-weight:700;">QA community</strong> comes together for a day of sessions, hands-on workshops, and conversations that push <strong style="color:var(--teal);font-weight:700;">quality engineering</strong> forward, together.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://forms.cloud.microsoft/r/tsdH9BT1mR" target="_blank" rel="noopener">Reserve Your Seat</a>
-      <a class="btn btn-ghost" href="#agenda">See the Agenda</a>
+    <p class="sub">Where testing meets transformation. FINT's <strong style="color:var(--teal);font-weight:700;">QA community</strong> comes together for a day of sessions, hands-on workshops, and conversations that push <strong style="color:var(--purple);font-weight:700;">quality engineering</strong> forward, together.</p>
+
+    <div class="countdown-banner">
+      <span class="countdown-label">Starts in</span>
+      <div class="countdown-units" id="countdown-units">
+        <div class="unit"><span class="num" id="cd-days">00</span><span class="lbl">Days</span></div>
+        <div class="unit"><span class="num" id="cd-hours">00</span><span class="lbl">Hours</span></div>
+        <div class="unit"><span class="num" id="cd-mins">00</span><span class="lbl">Minutes</span></div>
+        <div class="unit"><span class="num" id="cd-secs">00</span><span class="lbl">Seconds</span></div>
+      </div>
+      <a class="btn countdown-cta" href="https://forms.cloud.microsoft/r/tsdH9BT1mR" target="_blank" rel="noopener">Reserve Seat</a>
+      <a class="btn countdown-cta-ghost" href="#agenda">See the Agenda</a>
     </div>
     <div class="hero-meta">
       <div><strong>Oct 10, 2026</strong>Saturday <span class="sep">&#8226;</span> Full day</div>
@@ -82,10 +88,10 @@
     </div>
 
     <div class="stat-strip">
-      <div class="stat"><span class="num">Limited</span><span class="label">Seats</span></div>
-      <div class="stat"><span class="num">5</span><span class="label">Speakers</span></div>
-      <div class="stat"><span class="num">4</span><span class="label">Sessions</span></div>
-      <div class="stat"><span class="num">1</span><span class="label">Workshop</span></div>
+      <div class="stat"><span class="num" style="color:var(--teal);">8+</span><span class="label">QA Experts</span></div>
+      <div class="stat"><span class="num" style="color:var(--purple);">4+</span><span class="label">Real-World Talks</span></div>
+      <div class="stat"><span class="num" style="color:var(--red);">1</span><span class="label">Hands-On Lab</span></div>
+      <div class="stat"><span class="num">&#8734;</span><span class="label">Ways to Learn</span></div>
     </div>
   </div>
 </section>
@@ -93,7 +99,7 @@
 <section id="learnings">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Why attend</span>
+      <span class="eyebrow" style="color:var(--purple);">Why attend</span>
       <h2>What can I learn from this Expo?</h2>
       <p>A snapshot of the takeaways, more detail lands as sessions are finalized.</p>
     </div>
@@ -129,7 +135,7 @@
 <section id="agenda">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">The day, unboxed</span>
+      <span class="eyebrow" style="color:var(--red);">The day, unboxed</span>
       <h2>Unboxing Expo: the full agenda</h2>
       <p>One day. Four sessions, a hands-on workshop, and everything in between.</p>
     </div>
@@ -185,34 +191,34 @@
 <section id="management">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Under the guidance of Ram</span>
+      <span class="eyebrow" style="color:var(--purple);">Steering the ship</span>
       <h2>Management</h2>
-      <p>The leadership team backing QAlchemy Expo.</p>
+      <p>The leadership team backing QAlchemy Expo, under the guidance of Ram.</p>
     </div>
     <div class="people-grid">
       <div class="person-card">
         <div class="avatar"><img src="photos/management/aditya-kumar-muppalla.png" alt="" loading="lazy"></div>
         <h4>Aditya Kumar Muppalla</h4>
         <div class="role">Chief Executive Officer</div>
-        <a class="linkedin-link" href="https://www.linkedin.com/in/aditya-kumar-muppalla-168090192/" target="_blank" rel="noopener">LinkedIn &#8594;</a>
+        <a class="linkedin-link" href="https://www.linkedin.com/in/aditya-kumar-muppalla-168090192/" target="_blank" rel="noopener"><svg class="linkedin-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.87c0-1.64-.03-3.75-2.28-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg> LinkedIn</a>
       </div>
       <div class="person-card">
         <div class="avatar"><img src="photos/management/ram-manthena.png" alt="" loading="lazy"></div>
         <h4>Ram Manthena</h4>
         <div class="role">Chief Technology Officer</div>
-        <a class="linkedin-link" href="https://www.linkedin.com/in/ram-manthena-b927657/" target="_blank" rel="noopener">LinkedIn &#8594;</a>
+        <a class="linkedin-link" href="https://www.linkedin.com/in/ram-manthena-b927657/" target="_blank" rel="noopener"><svg class="linkedin-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.87c0-1.64-.03-3.75-2.28-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg> LinkedIn</a>
       </div>
       <div class="person-card">
         <div class="avatar"><img src="photos/management/rama-choday.png" alt="" loading="lazy"></div>
         <h4>Rama Choday</h4>
         <div class="role">VP, Talent Acquisition &amp; Strategy</div>
-        <a class="linkedin-link" href="https://www.linkedin.com/in/rama-c-4b0aa91a/" target="_blank" rel="noopener">LinkedIn &#8594;</a>
+        <a class="linkedin-link" href="https://www.linkedin.com/in/rama-c-4b0aa91a/" target="_blank" rel="noopener"><svg class="linkedin-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.87c0-1.64-.03-3.75-2.28-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg> LinkedIn</a>
       </div>
       <div class="person-card">
         <div class="avatar"><img src="photos/management/parthiv-muppalla.png" alt="" loading="lazy"></div>
         <h4>Parthiv Muppalla</h4>
         <div class="role">VP, US Business Operations</div>
-        <a class="linkedin-link" href="https://www.linkedin.com/in/parthiv-muppalla-532114229/" target="_blank" rel="noopener">LinkedIn &#8594;</a>
+        <a class="linkedin-link" href="https://www.linkedin.com/in/parthiv-muppalla-532114229/" target="_blank" rel="noopener"><svg class="linkedin-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.87c0-1.64-.03-3.75-2.28-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg> LinkedIn</a>
       </div>
     </div>
   </div>
@@ -221,7 +227,7 @@
 <section id="volunteers">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Who's making it happen</span>
+      <span class="eyebrow" style="color:var(--red);">The hands behind the scenes</span>
       <h2>Volunteers</h2>
       <p>The crew running the room so everyone else can just show up and learn.</p>
     </div>
@@ -232,7 +238,7 @@
 <section id="faq">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Before you register</span>
+      <span class="eyebrow" style="color:var(--teal);">Before you register</span>
       <h2>Frequently asked questions</h2>
       <p>Everything you'd want to know before showing up.</p>
     </div>
@@ -275,7 +281,7 @@
 
 <section class="cta-band" id="register-band" style="border-top:1px solid var(--border);">
   <div class="wrap">
-    <span class="eyebrow">Seats are limited</span>
+    <span class="eyebrow" style="color:var(--red);">Seats Filling fast, hurry up</span>
     <h2>Come be part of it.</h2>
     <p>QAlchemy Expo &middot; Oct 10, 2026 &middot; Dallas Center, Hyderabad</p>
     <a class="btn btn-primary" href="https://forms.cloud.microsoft/r/tsdH9BT1mR" target="_blank" rel="noopener">Register Now</a>
@@ -285,7 +291,7 @@
 <section id="contact">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Find us</span>
+      <span class="eyebrow" style="color:var(--purple);">Find us</span>
       <h2>Contact &amp; venue</h2>
     </div>
     <div class="contact-grid">
@@ -310,7 +316,6 @@
           <div class="k">Organized by</div>
           <div class="v">FINT QA Collective</div>
         </div>
-        <span class="placeholder-note">Contact email is a placeholder: replace with your official event inbox</span>
       </div>
     </div>
   </div>

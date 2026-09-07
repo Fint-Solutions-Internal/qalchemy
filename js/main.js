@@ -7,11 +7,21 @@ const speakers = [
 ];
 
 const volunteers = [
-  "Anurag", "Dinesh", "Lakshman", "Manoji", "Naveen", "Praveen",
-  "Rajasheker", "Raviteja", "Shravan", "Supriya", "Sushma", "Syam"
-].map(name => ({
-  name,
-  photo: `photos/volunteers/${name.toLowerCase()}.jpg`
+  { slug: "anurag", name: "Sai Anurag Rao Gandra" },
+  { slug: "dinesh", name: "Dinesh Gattu" },
+  { slug: "lakshman", name: "Lakshmana Vissarapu" },
+  { slug: "manoji", name: "Manoji Konduru" },
+  { slug: "naveen", name: "Naveen Reddy Mandati" },
+  { slug: "praveen", name: "Praveen Lavisetti" },
+  { slug: "rajasheker", name: "B Rajasheker Reddy" },
+  { slug: "raviteja", name: "Raviteja Nalam" },
+  { slug: "shravan", name: "Shravan Kumar Matla" },
+  { slug: "supriya", name: "Supriya Mummadisetti" },
+  { slug: "sushma", name: "Sushma Vejendla" },
+  { slug: "syam", name: "Syamkumar Vanapalli" }
+].map(v => ({
+  name: v.name,
+  photo: `photos/volunteers/${v.slug}.jpg`
 }));
 
 function avatarMarkup(photoPath, initials, sizeClass) {
@@ -49,21 +59,27 @@ renderSpeakers();
 renderVolunteers();
 
 function renderCountdown() {
-  const el = document.getElementById('countdown-bar');
-  if (!el) return;
+  const units = document.getElementById('countdown-units');
+  const label = document.querySelector('.countdown-label');
+  if (!units) return;
   const eventDate = new Date('2026-10-10T09:30:00+05:30').getTime();
+  const pad = n => String(n).padStart(2, '0');
 
   function tick() {
     const diff = eventDate - Date.now();
     if (diff <= 0) {
-      el.textContent = "QAlchemy Expo is live!";
+      if (label) label.textContent = "It's live!";
+      units.style.display = 'none';
       return;
     }
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000) / 1000);
-    el.innerHTML = `QAlchemy Expo starts in <strong>${d}d ${h}h ${m}m ${s}s</strong>`;
+    document.getElementById('cd-days').textContent = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
+    document.getElementById('cd-mins').textContent = pad(m);
+    document.getElementById('cd-secs').textContent = pad(s);
   }
 
   tick();
