@@ -1,7 +1,7 @@
 const speakers = [
   { name: "Raju Kumar Matcha", initials: "RM", role: "Speaker", topic: "QA + AI + Infra", photo: "photos/speakers/raju-kumar-matcha.jpg" },
   { name: "Nalinikanth Meesala", initials: "NM", role: "Speaker", topic: "QA + AI + Security", photo: "photos/speakers/nalinikanth-meesala.jpg" },
-  { name: "Saravanan P", initials: "SP", role: "Speaker", topic: "General session", photo: "photos/speakers/saravanan-p.jpg" },
+  { name: "Saravanan Paramasivan", initials: "SP", role: "Speaker", topic: "General session", photo: "photos/speakers/saravanan-paramasivan.jpg" },
   { name: "Bharath Yarra", initials: "BY", role: "Speaker", topic: "General session", photo: "photos/speakers/bharath-yarra.jpg" },
   { name: "Anirudh Konduri", initials: "AK", role: "Speaker", topic: "FINT Internal Tooling", photo: "photos/speakers/anirudh-konduri.jpg" },
   { name: "Poornima Rengamurthy Angiya", initials: "PR", role: "Speaker", topic: "FINT Internal Tooling", photo: "photos/speakers/poornima-rengamurthy-angiya.jpg" },
