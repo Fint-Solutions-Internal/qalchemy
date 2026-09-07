@@ -270,12 +270,13 @@ section{padding:64px 0;border-top:1px solid var(--border);}
 .person-card .role{font-family:'Roboto',sans-serif;font-size:11.5px;color:var(--graphite-soft);text-transform:uppercase;letter-spacing:.06em;}
 .person-card .topic{margin-top:12px;font-size:13.5px;color:var(--graphite-soft);}
 .linkedin-link{
-  display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:500;
-  color:var(--teal);border-bottom:1px solid transparent;
-  transition:border-color .15s ease;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;margin-top:12px;border-radius:50%;
+  color:var(--teal);background:var(--teal-soft);
+  transition:background-color .15s ease, color .15s ease;
 }
-.linkedin-link:hover{border-color:var(--teal);}
-.linkedin-icon{flex-shrink:0;}
+.linkedin-link:hover{background:var(--teal);color:#fff;}
+.linkedin-icon{flex-shrink:0;width:18px;height:18px;}
 
 /* COUNTDOWN */
 .countdown-banner{
