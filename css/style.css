@@ -265,6 +265,7 @@ section{padding:64px 0;border-top:1px solid var(--border);}
   transition:box-shadow .18s ease, transform .18s ease;
 }
 .person-card:hover .avatar{box-shadow:0 0 0 4px var(--teal-soft);transform:scale(1.04);}
+.vol-card:hover .avatar{box-shadow:none;}
 .avatar img{width:100%;height:100%;object-fit:cover;object-position:center 22%;border-radius:50%;}
 .person-card h4{font-size:17px;font-weight:700;margin-bottom:4px;font-family:'Roboto',sans-serif;}
 .person-card .role{font-family:'Roboto',sans-serif;font-size:11.5px;color:var(--graphite-soft);text-transform:uppercase;letter-spacing:.06em;}
