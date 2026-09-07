@@ -248,6 +248,7 @@ section{padding:64px 0;border-top:1px solid var(--border);}
 .people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
 @media(max-width:820px){.people-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:520px){.people-grid{grid-template-columns:1fr;}}
+@media(min-width:821px){#management .people-grid > :nth-child(4){grid-column:2;}}
 .person-card{
   background:var(--card);border:1px solid var(--border);border-radius:18px;
   padding:28px 24px;text-align:center;
