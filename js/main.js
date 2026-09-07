@@ -47,3 +47,27 @@ function renderVolunteers() {
 
 renderSpeakers();
 renderVolunteers();
+
+function renderCountdown() {
+  const el = document.getElementById('countdown-bar');
+  if (!el) return;
+  const eventDate = new Date('2026-10-10T09:30:00+05:30').getTime();
+
+  function tick() {
+    const diff = eventDate - Date.now();
+    if (diff <= 0) {
+      el.textContent = "QAlchemy Expo is live!";
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    el.innerHTML = `QAlchemy Expo starts in <strong>${d}d ${h}h ${m}m ${s}s</strong>`;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+renderCountdown();
