@@ -1,12 +1,12 @@
 const speakers = [
-  { name: "Raju Kumar Matcha", initials: "RM", role: "Speaker", topic: "QA + AI + Infra", photo: "photos/speakers/raju-kumar-matcha.jpg" },
+  { name: "Raju Kumar Matcha", initials: "RM", role: "Senior Software QA Engineer, Suse Software Solutions", topic: "15+ years in QA engineering", photo: "photos/speakers/raju-kumar-matcha.jpg", linkedin: "https://www.linkedin.com/in/rajukumar-macha/" },
   { name: "Nalinikanth Meesala", initials: "NM", role: "Speaker", topic: "QA + AI + Security", photo: "photos/speakers/nalinikanth-meesala.jpg" },
-  { name: "Saravanan Paramasivan", initials: "SP", role: "Speaker", topic: "General session", photo: "photos/speakers/saravanan-paramasivan.jpg" },
-  { name: "Bharath Yarra", initials: "BY", role: "Speaker", topic: "General session", photo: "photos/speakers/bharath-yarra.jpg" },
-  { name: "Anirudh Konduri", initials: "AK", role: "Speaker", topic: "FINT Internal Tooling", photo: "photos/speakers/anirudh-konduri.jpg" },
-  { name: "Poornima Rengamurthy Angiya", initials: "PR", role: "Speaker", topic: "FINT Internal Tooling", photo: "photos/speakers/poornima-rengamurthy-angiya.jpg" },
-  { name: "Jayakumar Jayaraman", initials: "JJ", role: "Workshop Lead", topic: "Hands-on: MobileWright", photo: "photos/speakers/jayakumar-jayaraman.jpg" },
-  { name: "Hariharan Arumugam", initials: "HA", role: "Workshop Lead", topic: "Hands-on: MobileWright", photo: "photos/speakers/hariharan-arumugam.jpg" }
+  { name: "Saravanan Paramasivan", initials: "SP", role: "Speaker", topic: "General session", photo: "photos/speakers/saravanan-paramasivan.jpg", linkedin: "https://www.linkedin.com/in/saravananp-qatechlead/" },
+  { name: "Bharath Yarra", initials: "BY", role: "Speaker", topic: "General session", photo: "photos/speakers/bharath-yarra.jpg", linkedin: "https://www.linkedin.com/in/bharath-yarra-37898a205/" },
+  { name: "Anirudh Konduri", initials: "AK", role: "Lead QA, FINT Solutions", topic: "10+ years of experience", photo: "photos/speakers/anirudh-konduri.jpg", linkedin: "https://www.linkedin.com/in/anirudh-konduri/" },
+  { name: "Poornima Rengamurthy Angiya", initials: "PR", role: "Speaker", topic: "FINT Internal Tooling", photo: "photos/speakers/poornima-rengamurthy-angiya.jpg", linkedin: "https://www.linkedin.com/in/poornima-r-angiya-3197b526/" },
+  { name: "Jayakumar Jayaraman", initials: "JJ", role: "Workshop Lead", topic: "Hands-on: MobileWright", photo: "photos/speakers/jayakumar-jayaraman.jpg", linkedin: "https://www.linkedin.com/in/jayakumar-j-2b5b5b20b/" },
+  { name: "Hariharan Arumugam", initials: "HA", role: "Workshop Lead", topic: "Hands-on: MobileWright", photo: "photos/speakers/hariharan-arumugam.jpg", linkedin: "https://www.linkedin.com/in/hariharana1207/" }
 ];
 
 const volunteers = [
@@ -37,12 +37,14 @@ function avatarMarkup(photoPath, initials, sizeClass) {
 function renderSpeakers() {
   const grid = document.getElementById('speakers-grid');
   if (!grid) return;
+  const linkedinIcon = '<svg class="linkedin-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.1 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.83v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.06 0 4.81 2.67 4.81 6.14V23h-4v-6.87c0-1.64-.03-3.75-2.28-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>';
   grid.innerHTML = speakers.map(s => `
     <div class="person-card">
       <div class="avatar">${avatarMarkup(s.photo, s.initials)}</div>
       <h4>${s.name}</h4>
       <div class="role">${s.role}</div>
       <div class="topic">${s.topic}</div>
+      ${s.linkedin ? `<a class="linkedin-link" href="${s.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">${linkedinIcon}</a>` : ''}
     </div>
   `).join('');
 }
