@@ -247,6 +247,19 @@ section{padding:64px 0;border-top:1px solid var(--border);}
   margin-bottom:12px;
 }
 .agenda-detail p:last-child{margin-bottom:0;}
+.agenda-takeaways{
+  list-style:none;padding:0;margin-top:14px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.agenda-takeaways li{
+  position:relative;padding-left:20px;
+  color:var(--graphite-soft);font-size:14px;line-height:1.6;
+}
+.agenda-takeaways li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--teal);
+}
 
 @media(max-width:640px){
   .agenda-row{grid-template-columns:1fr;gap:4px;padding:16px 20px;}

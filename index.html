@@ -117,7 +117,7 @@
       </div>
       <div class="learning-card">
         <h4>Internal tooling</h4>
-        <p>A look inside FINT QA Portal and QA Testforge, tools built in-house.</p>
+        <p>A look inside Fint QualiForge, a tool built in-house.</p>
       </div>
       <div class="learning-card">
         <h4>Hands-on with MobileWright</h4>
@@ -144,7 +144,6 @@
       <details class="agenda-row expandable">
         <summary><div class="time">10:00 - 10:45 AM</div><div class="session">Modern QA Architecture: Unlocking Scale via AI Intelligence &amp; Cloud Infrastructure<small>by Raju Kumar Matcha</small></div><div class="dur">45 min</div></summary>
         <div class="agenda-detail">
-          <span class="speaker-byline">Senior Software QA Engineer, Suse Software Solutions &middot; 15+ years in QA engineering</span>
           <p>As applications evolve into complex, AI-driven SaaS platforms with real-time interactive workloads, traditional QA architectures crumble under test flakiness and high maintenance overhead.</p>
           <p>This session unpacks the blueprint of a modern, enterprise-grade Quality Engineering stack, drawing from real-world architecture behind browser-based interactive platforms like <strong>LearnCen</strong>, fusing AI-assisted visual automation and LLM evaluation pipelines with elastic, containerized cloud infrastructure.</p>
           <p>Attendees leave with strategies for self-healing test automation, smart test-impact analysis, and ephemeral execution grids that cut feedback loops from hours to minutes without ballooning cloud costs.</p>
@@ -152,9 +151,17 @@
       </details>
 
       <details class="agenda-row expandable">
-        <summary><div class="time">10:45 - 11:30 AM</div><div class="session">FINT QA Portal &rarr; QA Testforge<small>by Anirudh Konduri &amp; Poornima Rengamurthy Angiya</small></div><div class="dur">45 min</div></summary>
+        <summary><div class="time">10:45 - 11:30 AM</div><div class="session">From Requirement to Green Build: Inside Fint QualiForge<small>by Anirudh Konduri &amp; Poornima Rengamurthy Angiya</small></div><div class="dur">45 min</div></summary>
         <div class="agenda-detail">
-          <p>A look at FINT's internal QA tooling, from the FINT QA Portal to its evolution into QA Testforge. Working title, full session details are coming soon.</p>
+          <p>Most "AI for QA" stories stop at generating test cases. That solves about a fifth of the problem. The cases still need reviewing, still need to reach your test management tool, and still need to become automation someone can actually run.</p>
+          <p>Fint QualiForge closes the loop. A requirement, a document, or a plain idea goes in. AI drafts the coverage, checked against a semantic catalog that refuses to write the same case twice, and a human reviews and approves it. From that single catalog, cases publish to TestLink, Jira, ADO, or Zephyr, and the automation generates as Playwright, Gherkin, or k6 code that follows our repo conventions, committed to a branch and raised as a pull request in GitHub. Reviewed, merged, and green in CI. At release, a regression suite assembles itself around what actually changed.</p>
+          <p>We'll cover the architecture, the mistakes, and the one lesson that mattered: the catalog, not the model, is the center of gravity.</p>
+          <span class="speaker-byline">You'll walk away having:</span>
+          <ul class="agenda-takeaways">
+            <li>No more writing automation by hand for cases the AI already designed</li>
+            <li>No more copy-paste between the AI, the test management tool, and the repo</li>
+            <li>No more full regression runs to validate a two-file change</li>
+          </ul>
         </div>
       </details>
 
@@ -177,9 +184,17 @@
       <div class="agenda-row break"><div class="time">1:20 - 2:30 PM</div><div class="session">Lunch</div><div class="dur">1 hr 10 min</div></div>
 
       <details class="agenda-row expandable">
-        <summary><div class="time">2:30 - 4:00 PM</div><div class="session">Hands-on with MobileWright<small>by Jayakumar Jayaraman &amp; Hariharan Arumugam</small></div><div class="dur">1 hr 30 min</div></summary>
+        <summary><div class="time">2:30 - 4:00 PM</div><div class="session">Mobilewright: Next-Generation Mobile App Automation Powered by Playwright<small>by Jayakumar Jayaraman &amp; Hariharan Arumugam</small></div><div class="dur">1 hr 30 min</div></summary>
         <div class="agenda-detail">
-          <p>Pre-requisites and setup instructions will be shared with registered participants closer to the date.</p>
+          <p>If you've written a Playwright test, you already know most of MobileWright. Same locators, same auto-waiting, same assertions, same reporting. The difference is what's on the other end: an iOS or Android app, running on a simulator, an emulator, or a real device, driven through one TypeScript API and installed with npm.</p>
+          <p>This is a working session, not a demo. You'll install it, write your first mobile test, run it on a device, and watch it fail on purpose so you can see how the tool handles it. We'll also touch the part that makes it interesting in 2026: MobileWright exposes the accessibility tree to AI agents, so the same setup running your tests can let an LLM drive the app.</p>
+          <p>Bring a laptop with the prerequisites installed. No mobile automation experience needed, just curiosity and a working Node setup.</p>
+          <span class="speaker-byline">You'll walk away having:</span>
+          <ul class="agenda-takeaways">
+            <li>No more separate iOS and Android suites to maintain</li>
+            <li>No more Appium setup before you can write line one</li>
+            <li>No more waiting on manual sleeps and retries to get a green run</li>
+          </ul>
         </div>
       </details>
 
