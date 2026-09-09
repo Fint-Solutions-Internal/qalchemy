@@ -75,8 +75,6 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:1
   .brand{font-size:11px;gap:6px;}
   .brand-logo{height:56px;max-height:56px;}
   .navcta{padding:9px 14px;font-size:12px;}
-  .navcta .full{display:none;}
-  .navcta .short{display:inline;}
 }
 
 /* HERO */
