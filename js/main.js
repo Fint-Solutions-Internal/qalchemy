@@ -4,7 +4,7 @@ const speakers = [
   { name: "Saravanan Paramasivan", initials: "SP", role: "Speaker", topic: "General session", photo: "photos/speakers/saravanan-paramasivan.jpg", linkedin: "https://www.linkedin.com/in/saravananp-qatechlead/" },
   { name: "Bharath Yarra", initials: "BY", role: "Speaker", topic: "General session", photo: "photos/speakers/bharath-yarra.jpg", linkedin: "https://www.linkedin.com/in/bharath-yarra-37898a205/" },
   { name: "Anirudh Konduri", initials: "AK", role: "Lead QA, FINT Solutions", topic: "10+ years of experience", photo: "photos/speakers/anirudh-konduri.jpg", linkedin: "https://www.linkedin.com/in/anirudh-konduri/" },
-  { name: "Poornima Rengamurthy Angiya", initials: "PR", role: "Speaker", topic: "FINT Internal Tooling", photo: "photos/speakers/poornima-rengamurthy-angiya.jpg", linkedin: "https://www.linkedin.com/in/poornima-r-angiya-3197b526/" },
+  { name: "Poornima Rengamurthy Angiya", initials: "PR", role: "Delivery Manager, FINT Solutions", topic: "18+ years of experience", photo: "photos/speakers/poornima-rengamurthy-angiya.jpg", linkedin: "https://www.linkedin.com/in/poornima-r-angiya-3197b526/" },
   { name: "Jayakumar Jayaraman", initials: "JJ", role: "Workshop Lead", topic: "Hands-on: MobileWright", photo: "photos/speakers/jayakumar-jayaraman.jpg", linkedin: "https://www.linkedin.com/in/jayakumar-j-2b5b5b20b/" },
   { name: "Hariharan Arumugam", initials: "HA", role: "Workshop Lead", topic: "Hands-on: MobileWright", photo: "photos/speakers/hariharan-arumugam.jpg", linkedin: "https://www.linkedin.com/in/hariharana1207/" }
 ];
