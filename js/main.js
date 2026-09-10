@@ -91,3 +91,27 @@ function renderCountdown() {
 }
 
 renderCountdown();
+
+function fitStatNumbers() {
+  const nums = document.querySelectorAll('.stat .num');
+  nums.forEach(el => {
+    el.style.fontSize = '';
+    const maxFontSize = parseFloat(getComputedStyle(el).fontSize);
+    const parent = el.parentElement;
+    const parentStyle = getComputedStyle(parent);
+    const paddingX = parseFloat(parentStyle.paddingLeft) + parseFloat(parentStyle.paddingRight);
+    const available = parent.clientWidth - paddingX - 4;
+    let fontSize = maxFontSize;
+    el.style.fontSize = fontSize + 'px';
+    while (el.scrollWidth > available && fontSize > 14) {
+      fontSize -= 1;
+      el.style.fontSize = fontSize + 'px';
+    }
+  });
+}
+
+fitStatNumbers();
+window.addEventListener('resize', () => {
+  clearTimeout(window._statFitTimer);
+  window._statFitTimer = setTimeout(fitStatNumbers, 150);
+});

@@ -174,7 +174,10 @@ section{padding:64px 0;border-top:1px solid var(--border);}
 .stat-strip{
   display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:64px;
 }
-@media(max-width:700px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:700px){
+  .stat-strip{grid-template-columns:repeat(2,1fr);}
+  .stat .num{font-size:24px;}
+}
 .stat{
   position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;gap:6px;
@@ -189,7 +192,7 @@ section{padding:64px 0;border-top:1px solid var(--border);}
 }
 .stat:hover{transform:translateY(-4px);border-color:var(--teal);box-shadow:0 12px 24px -16px var(--teal);}
 .stat:hover::after{transform:scaleX(1);}
-.stat .num{font-family:Georgia,serif;font-size:42px;line-height:1;color:var(--teal);}
+.stat .num{font-family:Georgia,serif;font-size:32px;line-height:1.15;color:var(--teal);white-space:nowrap;display:inline-block;max-width:100%;}
 .stat .label{font-family:'Roboto',sans-serif;font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--graphite-soft);margin-top:2px;}
 
 /* AGENDA */
